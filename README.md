@@ -17,7 +17,7 @@
 - Rwd included for most popular resolutions
 
 # How to start:
-
+First:
 npm install
 
 Then:
