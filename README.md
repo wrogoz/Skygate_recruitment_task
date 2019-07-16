@@ -4,10 +4,11 @@
 - ES6
 - Typescript
 - React
-- Webpack
 - mobx
 - styled-components
+- axios
 - React Material Web Components
+- Webpack
 
 # Features:
 
