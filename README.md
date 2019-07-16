@@ -1,4 +1,4 @@
-# TS starter
+# Skygate recruitment_task: "Most polluted cities"
 
 First:
 npm install
