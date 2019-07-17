@@ -28,7 +28,7 @@ export default class CityListItem extends React.Component<listItemsProps, any>{
             description:"",
         };
     };
-    // api get description 
+    // api GET description 
     componentDidUpdate(){
         this._isMounted=true;
         const url = `https://en.wikipedia.org/w/api.php?action=query&prop=description&titles=${this.props.city}&format=json&origin=*&formatversion=2`;
@@ -51,6 +51,8 @@ export default class CityListItem extends React.Component<listItemsProps, any>{
     componentWillUnmount(){
         this._isMounted=false;
     };
+
+    // city description show/hide
 
     showDescriptionHandler = ()=>{
         this.setState({visibility:!this.state.visibility})  

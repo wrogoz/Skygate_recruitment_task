@@ -24,6 +24,9 @@ export default class Core extends React.Component<CoreProps,{}>{
     
     InputHandler = (e:any)=>{
         this.props.store.inputValue = e.target.value.toLowerCase();
+
+        // show/hide country suggestions
+
         e.target.value.length > 0 ? this.props.store.isSugestionsVis = true : this.props.store.isSugestionsVis = false;
       
     };
@@ -52,11 +55,16 @@ export default class Core extends React.Component<CoreProps,{}>{
         
         axios.get(`https://api.openaq.org/v1/measurements?country=${this.props.store.countryShortcut}&parameter=pm25&limit=100`)
             .then((res) => {
+
+        // Sorting incoming data
+
                 let editedData: any = [];
                 function compareValue(a: any, b: any) {
                     return b.value - a.value
                 };
                 let incomingData = res.data.results.sort(compareValue);
+                
+        // Deleting duplicates         
 
                 for (let i = 0; i < incomingData.length; i++) {
                     let isTrue: boolean = false;
@@ -84,6 +92,9 @@ export default class Core extends React.Component<CoreProps,{}>{
             });
        
     };
+
+    // Updating chosen suggestion
+
     updateVal = (e:any)=>{
         if(this.props.store.selectedSugestion.length>0){
             e.target.value=this.props.store.selectedSugestion
