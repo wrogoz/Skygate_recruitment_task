@@ -83,14 +83,19 @@ export default class Core extends React.Component<CoreProps,{}>{
                 };
                     
                 this.props.store.airQData = editedData;
-           
+                
                 // closing sugestion list
                 if(this.props.store.airQData.length>0){
                     this.props.store.isSugestionsVis=false;
                 };
                 
-            });
-       
+            })
+            
+            .catch((err)=> {
+                
+                console.log(err);
+              });
+            
     };
 
     // Updating chosen suggestion
