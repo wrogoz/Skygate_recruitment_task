@@ -2,15 +2,15 @@ import * as React from 'react';
 import {observer} from 'mobx-react';
 import Header from './Header';
 import Core from './core/Core' ;
-import store from '../stores/store';
+import store, {Store} from '../store/store';
 import styled from 'styled-components';
 
  interface LayoutProps {
-    store: any;
+    store: Store;
   };
+
 @observer  
 export default class Layout extends React.Component<LayoutProps,{}>{
-   
    
     render(){
         return(
@@ -21,6 +21,7 @@ export default class Layout extends React.Component<LayoutProps,{}>{
         );
     };
 };
+
 const Container=styled.div`
 display:flex;
 flex-direction:column;

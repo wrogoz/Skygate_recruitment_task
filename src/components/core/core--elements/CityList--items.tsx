@@ -14,12 +14,18 @@ interface listItemsProps{
     unit:string,
     value:number
 }
+interface listItemsState {
+    visibility: boolean;
+    city: string;
+    description: string;
+}
+
 @observer
-export default class CityListItem extends React.Component<listItemsProps, any>{
+export default class CityListItem extends React.Component<listItemsProps, listItemsState>{
     description:string;
     visibility:boolean;
     _isMounted:boolean;
-    constructor(props: any) {
+    constructor(props: listItemsProps) {
         super(props);
     this._isMounted=false;   
         this.state={
@@ -28,7 +34,9 @@ export default class CityListItem extends React.Component<listItemsProps, any>{
             description:"",
         };
     };
-    // api GET description 
+
+    // api get description 
+
     componentDidUpdate(){
         this._isMounted=true;
         const url = `https://en.wikipedia.org/w/api.php?action=query&prop=description&titles=${this.props.city}&format=json&origin=*&formatversion=2`;
@@ -51,8 +59,6 @@ export default class CityListItem extends React.Component<listItemsProps, any>{
     componentWillUnmount(){
         this._isMounted=false;
     };
-
-    // city description show/hide
 
     showDescriptionHandler = ()=>{
         this.setState({visibility:!this.state.visibility})  
@@ -93,6 +99,7 @@ const StyledInfo = styled(ListItemGraphic)`
 const StyledListItem = styled(ListItem)`
     width:100%; 
 `
+
 const Parameters = styled.div`
     display:flex;
     justify-content:flex-end;
@@ -103,6 +110,7 @@ const Parameters = styled.div`
             font-size:1rem;
     };
 `
+
 const StyledDescription = styled.p`
     display:flex;
     justify-content:center;

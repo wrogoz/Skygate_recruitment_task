@@ -7,7 +7,6 @@ import {
 } from '@rmwc/toolbar';
 import { Icon } from '@rmwc/icon';
 
-
 export default class Header extends React.Component<{},{}>{
     render(){
         return(
@@ -22,25 +21,26 @@ export default class Header extends React.Component<{},{}>{
         );
     };
 };
+
 const StyledToolbarRow = styled(ToolbarRow)`
     display:flex;
     justify-content:center;
-    
 `
 
 const StyledToolbar = styled(Toolbar)`
     background-color:#333;
     margin-bottom:3%; 
     `
+
 const Title = styled(ToolbarTitle)`
     display:flex;
     align-items:center;
     justify-content:center;
-    width:60%;
+    width:80%;
     font-size:1.2rem;
     @media (min-width: 525px) {
         font-size:1.6rem;
-};
+    };
 `
 const StyledIcon = styled(Icon)`
     &&{
